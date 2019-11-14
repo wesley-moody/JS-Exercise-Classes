@@ -47,26 +47,25 @@ class Person {
     this.stomach = [];
   }  
 
-  eat(eat) {
-    if (this.stomach.length < 10) {
-      this.stomach.push(eat);
-    } else {
-      return this.stomach;
-  }
-}
-
-  // @ts-ignore
-  poop(poop) {
-    if (this.stomach.length = 0) {      
-      function empty(stomach) {
-        stomach = [];
-      } 
+    eat(eat) {
+      if (this.stomach.length < 10) {
+        this.stomach.push(eat);
+      } else {
+        return this.stomach;
+      }
     }
-  }  
 
-  toString() {
-    return `${this.name}, ${this.age}`;
-  }
+    poop(poop) {
+      if (this.stomach.length = 0) {      
+        function empty(stomach) {
+          stomach = [];
+        } 
+      }
+    }  
+
+    toString() {
+      return `${this.name}, ${this.age}`;
+    }
 }
 /*
   TASK 2
@@ -118,7 +117,15 @@ class Car {
         + {name} and {location} of course come from the instance's own properties.jus
 */
 // @ts-ignore
-class Lambdasian {}
+class Lambdasian {
+ constructor(attributes) {
+   this.name = attributes.name;
+   this.age = attributes.age;
+   this.location = attributes.location;
+   this.speak = attributes
+ }
+
+}
 
 
 
@@ -139,25 +146,24 @@ class Lambdasian {}
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
   class Instructor extends Lambdasian {
-  constructor(person) {
-      super();
-      this.specialty = person.specialty;
-      this.subject = person.subject
-      this.favLanguage = person.favLanguage;
-      this.catchPhrase = person.catchPhrase;    
+  constructor(attributes) {
+      super(attributes);
+      this.specialty = attributes.specialty;
+      // this.subject = attributes.subject
+      this.favLanguage = attributes.favLanguage;
+      this.catchPhrase = attributes.catchPhrase;    
   }
     demo(subject) {
       return `Today we are learning about ${subject}`
     }
-    grade(student) {
+    grade(student, subject) {
       this.student = student.student;{
+      return `${student.name} receives a perfect score on ${subject}`
       }
-      // return `${student.name} receives a perfect score on ${subject}`
+         // return `${student.name} receives a perfect score on ${subject}`
   }
 }
 
-// class instructor {
-  
 // }
 
 
@@ -176,8 +182,22 @@ class Lambdasian {}
         + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
-class Student {
-
+class Student extends Lambdasian{
+  constructor(attributes) {
+    super(attributes);
+    this.previousBackground = attributes.previousBackground;
+    this.className = attributes.className;
+    this.favSubjects = attributes.favSubjects;
+  }
+    listSubjects(){
+      return `Loving ${this.favSubjects}`
+    }
+    PRAssignment(){
+      return `${Student.name} has submitted a PR for ${subject}`
+    }
+    sprintChallenge(){
+      return `${Student.name} has begun sprint challenge on ${subject}`
+    }
 }
 
 /*
