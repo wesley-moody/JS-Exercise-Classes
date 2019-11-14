@@ -41,9 +41,34 @@ class Airplane {
 */
 
 class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+    this.stomach = [];
+  }  
 
+  eat(eat) {
+    if (this.stomach.length < 10) {
+      this.stomach.push(eat);
+    } else {
+      return this.stomach;
+  }
 }
 
+  // @ts-ignore
+  poop(poop) {
+    if (this.stomach.length = 0) {
+      // @ts-ignore
+      function empty(stomach) {
+        stomach = [];
+      } 
+    }
+  }  
+
+  toString() {
+    return `${this.name}, ${this.age}`
+  }
+}
 /*
   TASK 2
     - Write a Car class whose constructor initializes `model` and `milesPerGallon` from arguments.
@@ -59,7 +84,26 @@ class Person {
 */
 
 class Car {
+  constructor(model, milesPerGallon) {
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
+    this.tank = 0;
+    this.odometer = 0;
+  }
+  fill(gallons) {
+    return (this.tank += gallons);
+  };
 
+  drive(distance) {
+    if(this.tank * this.milesPerGallon < distance){
+      this.odometer = this.tank = this.milesPerGallon;
+      this.tank = 0;
+      return `I ran out of fuel at ${this.odometer} miles!`
+    } else {
+      this.odometer += distance
+      this.tank = this.tank - distance / this.milesPerGallon
+    }
+  };
 }
 
 /*
@@ -74,8 +118,21 @@ class Car {
         + Speaking should return a phrase `Hello my name is {name}, I am from {location}`.
         + {name} and {location} of course come from the instance's own properties.
 */
-class Lambdasian {
-
+// @ts-ignore
+class Instructor extends Lambdasian {
+  constructor (person) {
+    super(person);
+    this.specialty = person.specialty;
+    this.favLanguage = person.favLanguage;
+    this.catchPhrase = person.catchPhrase;
+  }
+  demo(subject) {
+    return `Today we are learning about ${subject}`
+  }
+  grade(student) {
+    this.student = student.student;
+    return `${student.name} receives a perfect score on ${subject}`
+  }
 }
 
 /*
@@ -92,9 +149,11 @@ class Lambdasian {
         + `demo` receives a `subject` string as an argument and returns the phrase 'Today we are learning about {subject}' where subject is the param passed in.
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
-class Instructor {
 
+class instructor {
+  
 }
+
 
 /*
   TASK 5
@@ -125,7 +184,7 @@ class Student {
     - Its constructor calls the parent constructor passing to it what it needs.
     - The constructor should also initialize `gradClassName` and `favInstructor` properties on the instance.
     - ProjectManager instances have the following methods:
-        + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
+        + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standby times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
 class ProjectManager {
@@ -149,6 +208,7 @@ if (typeof exports !== 'undefined') {
   if (Airplane) { module.exports.Airplane = Airplane }
   if (Person) { module.exports.Person = Person }
   if (Car) { module.exports.Car = Car }
+  // @ts-ignore
   if (Lambdasian) { module.exports.Lambdasian = Lambdasian }
   if (Instructor) { module.exports.Instructor = Instructor }
   if (Student) { module.exports.Student = Student }
