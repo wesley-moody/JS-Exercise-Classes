@@ -57,8 +57,7 @@ class Person {
 
   // @ts-ignore
   poop(poop) {
-    if (this.stomach.length = 0) {
-      // @ts-ignore
+    if (this.stomach.length = 0) {      
       function empty(stomach) {
         stomach = [];
       } 
@@ -66,7 +65,7 @@ class Person {
   }  
 
   toString() {
-    return `${this.name}, ${this.age}`
+    return `${this.name}, ${this.age}`;
   }
 }
 /*
@@ -116,24 +115,14 @@ class Car {
     - Its constructor should initialize `name`, `age` and `location` properties on the instance.
     - Instances of Lambdasian should be able to `.speak()`:
         + Speaking should return a phrase `Hello my name is {name}, I am from {location}`.
-        + {name} and {location} of course come from the instance's own properties.
+        + {name} and {location} of course come from the instance's own properties.jus
 */
 // @ts-ignore
-class Instructor extends Lambdasian {
-  constructor (person) {
-    super(person);
-    this.specialty = person.specialty;
-    this.favLanguage = person.favLanguage;
-    this.catchPhrase = person.catchPhrase;
-  }
-  demo(subject) {
-    return `Today we are learning about ${subject}`
-  }
-  grade(student) {
-    this.student = student.student;
-    return `${student.name} receives a perfect score on ${subject}`
-  }
-}
+class Lambdasian {}
+
+
+
+
 
 /*
   TASK 4
@@ -149,10 +138,27 @@ class Instructor extends Lambdasian {
         + `demo` receives a `subject` string as an argument and returns the phrase 'Today we are learning about {subject}' where subject is the param passed in.
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
-
-class instructor {
-  
+  class Instructor extends Lambdasian {
+  constructor(person) {
+      super();
+      this.specialty = person.specialty;
+      this.subject = person.subject
+      this.favLanguage = person.favLanguage;
+      this.catchPhrase = person.catchPhrase;    
+  }
+    demo(subject) {
+      return `Today we are learning about ${subject}`
+    }
+    grade(student) {
+      this.student = student.student;{
+      }
+      // return `${student.name} receives a perfect score on ${subject}`
+  }
 }
+
+// class instructor {
+  
+// }
 
 
 /*
